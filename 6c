@@ -1,0 +1,24 @@
+def create_file_and_count_words():
+    # Creating a file
+    file_name = input("Enter the file name to create: ")
+    with open(file_name, 'w') as file:
+        print("Enter the contents of the file (press Enter to finish):")
+        while True:
+            line = input()
+            if not line:
+                break
+            file.write(line + '\n')
+
+    # Displaying contents of the file
+    print("\nContents of the file:")
+    with open(file_name, 'r') as file:
+        print(file.read())
+
+    # Counting words in the file
+    with open(file_name, 'r') as file:
+        content = file.read()
+        word_count = len(content.split())
+        print(f"\nThe number of words in the file is: {word_count}")
+
+# Calling the function
+create_file_and_count_words()
